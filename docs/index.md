@@ -1,4 +1,4 @@
-# Bienvenue sur le site de présentation du projet Aristote.
+# Bienvenue sur le site du projet Aristote.
 
 Lors de la conférence IA & Education des 8 et 9 Juin 2023, un [prototype de l'application Aristote](https://webtv.centralesupelec.fr/videos/aristote/) a été présenté.
 Il répondait aux attentes des étudiants afin de rendre le média vidéo plus facile à utiliser pour leurs révisions.
@@ -11,66 +11,84 @@ Il répondait aux attentes des étudiants afin de rendre le média vidéo plus f
 Aristote utilise l'IA (intelligence artificielle) afin de transformer des vidéothèques pédagogiques en ressources d'apprentissage enrichies:
 
 - en produisant une retranscription de l'audio sous forme de texte qui peut être synchronisé avec la vidéo et dans lequel les recherches sont facilitées
+- en traduisant optionnellement ces retranscriptions pour générer par exemple des fichiers de sous-titre dans une autre langue
 - en classifiant les vidéos selon des thématiques
 - en proposant un titre, une description, des mots clés
-- en générant des propositions de questions à choix multiples (QCM) intégrables aux vidéos ou exploitables dans une plateforme d'apprentissage en ligne (comme Moodle)
+- en générant des quiz sous forme de question/réponses intégrables aux vidéos ou exploitables dans une plateforme d'apprentissage en ligne (comme Moodle)
 
-A terme, d'autres médias que les vidéos pourront être ajoutés (PDF par exemple).
+Outre les fichiers vidéos, d'autres ressources peuvent être traitées par Aristote:
 
-## Objectifs du projet
+- des fichiers audio
+- des fichiers de sous-titre (SRT ou VTT)
 
-Ce projet vise à industrialiser la production de ressources pour en faciliter la diffusion afin de:
+## Améliorer l'adoption et la diffusion de la technologie
 
-- faciliter l'adoption de ces technologies par les editeurs via un accès à une interface de programmation Web (API REST)
-- proposer une infrastructure mutualisée pour les opérations d'agent IA 
-  - cette infrastructure se veut être ouverte afin de permettre à chaque partenaire d'ajouter ses propres ressources de calcul
-- produire des données libres d'utilisation par l'usage d'IA non propriétaires aux conditions d'utilisation  plus claires
-- capitaliser sur les données produites et captées sous forme de retour utilisateurs: production de banques de ressource, amélioration des IA (fine tuning), développement de nouveaux services basés sur ces données par des EdTech partenaires
+Afin de toucher le plus d'étudiants possible, il est important de convaincre les enseignants qui sont garants des contenus pédagogiques mis à disposition. A ce titre plusieurs critères doivent être réunis:
 
-## Phases et architecture du projet
+- l'enseignant doit rester maître des contenus proposés et doit donc pouvoir valider ou modifier les propositions faites par l'IA
+- l'usage de LLM non souverain pose problème quant aux conditions d'utilisations des données générées et à la fuite d'informations importantes pour l'amélioration future du service
+- l'enseignant doit pouvoir accéder à ce service directement via ses outils de production de contenus actuels
 
-Le premier jalon à court terme est d'embarquer un large panel d'enseignants afin de vérifier que l'IA génère des quizz de bonne qualité pour leur discipline.
+Par conséquent, le projet:
 
-<figure markdown>
-![Portail Aristote](assets/aristote-demo.gif){ width="750" }
-<figcaption>Portail de démonstration Aristote</figcaption>
-</figure>
-Nous avons donc implémenté un portail de démonstration qui permettra (dès que l'infrastructure IA sera opérationnelle):
+- propose une [API](https://api.aristote.education/api/doc) qui permet d'intégrer la technologie Aristote dans des produits d'enseignement
+- propose un [portail de démonstration](https://portail.aristote.education/login) permettant de tester Aristote
+- propose une infrastructure permettant de répartir la charge de travail sur des serveurs distants
+- permettra de capitaliser sur les données produites et captées sous forme de retour utilisateurs: production de banques de ressource, amélioration des IA (fine tuning), développement de nouveaux services basés sur ces données par des EdTech partenaires
 
-  - de téléverser une vidéo
-  - de demander à l'infrastructure d'IA Aristote de générer les données d'enrichissement (retranscription audio, classification par discipline, mots clés, propositions de QCM)
-  - d'évaluer la qualité des données produites et de les corriger
- 
+## Architecture du composant de traitement des ressources
+### Une API pour traiter les ressources pédagogiques
+Aristote consiste tout d'abord en une [API](https://api.aristote.education/api/doc) qui permet d'accéder aux services de l'IA: 
 <figure markdown>
 ![API Aristote](assets/aristote-api.gif){ width="750" }
 <figcaption>API Aristote pour les applications pédagogiques</figcaption>
 </figure>
 
-Ce portail de démonstration s'appuie sur une architecture Webservices (API REST) que nous avons pensé la plus ouverte possible pour faciliter l'intégration d'Aristote par les éditeurs de la EdTech:
+Cette API a été conçue en collaboration avec France Université Numérique et l'équipe du projet ESUP-Pod.
 
-  - l'API a été conçue en collaboration avec France Université Numérique et l'équipe du projet ESUP-Pod
-  - elle est en cours d'intégration dans POD
-  - d'autres éditeurs se sont montrés intéressés pour intégrer Aristote
+### Un portail de démonstration
+Afin de permettre aux enseignants de tester la solution avant la mise à disposition de la technologie Aristote dans leurs outils, nous avons développé un portail permettant de produire des quiz et autres enrichissements (production de métadonnées, de sous-titres, de prise de note):
+<figure markdown>
+![Portail Aristote](assets/aristote-demo.gif){ width="750" }
+<figcaption>Portail de démonstration Aristote</figcaption>
+</figure>
 
+
+
+### Un traitement à distance des vidéos
+Afin de répartir les ressources informatiques requises pour le traitement des vidéos, une architecture à base de **workers** a été mise en place. Chaque **worker** possède un rôle précis (retransription de l'audio, génération de quiz et de métadonnées, traduction), et s'authentifie auprès d'Aristote pour récupérer ses tâches.
 <figure markdown>
 ![Infrastructure Aristote](assets/aristote-infra.gif){ width="750" }
 <figcaption>Principe d'architecture de l'infrastructure Aristote</figcaption>
  </figure>
 
-Nous avons travaillé sur l'optimisation de la qualité des données générées par l'IA, voici ce qui ressort de nos premières études:
+Cette architecture permet de mobiliser des ressources de calcul dans plusieurs établissements, même temporairement lorsqu'elles ne sont pas utilisées.
 
-- nous avons choisi le grand modèle de langage openHermes (LLM) pour sa compréhension de la langue Française
-- pour améliorer la pertinence des réponses, nous demandons au LLM de générer de nombreuses options pour les QCM, que nous faisons ensuite évaluer par un autre LLM
-- actuellement cette évaluation est **optionnellement** réalisée par ChatGPT, mais nous allons continuer à chercher une alternative
+### Un accès au LLM mutualisé avec gestion de priorités
 
-Nous avons commencé la création de l'infrastructure d'IA d'Aristote est basée sur des ressources de calcul, sur laquel sont implémentés des `workers` participant à la production de contenus:
+Afin de générer des informations de bonnes qualité, la pertinence du LLM est essentielle. Nos tests ont montré qu'actuellement le plus petit modèle utilisable dans notre contexte est un modèle Llama3 à 70 milliards de paramètres. Ceci suppose donc une infrastructure de claclu GPU importante, qu'il faut mutualiser pour la rentabiliser financièrement et la rendre écologiquement responsable (la multiplication de serveurs GPU dans les établissements auraient une empreinte environnementale néfaste).
 
-  - une API a été implémentée pour permettre de faciliter l'implémentation et l'évolution des `workers` 
-  - 3 types de `workers`: transcription (speech to text), IA générative (pour générer les données et QCM) et d'évaluation (faire une sélection sur les propositions de l'IA générative)  
-  - cela facilite la mutualisation de capacités de calcul entre les partenaires du projet
+Nous avons donc développé le projet Aristote-Dispacther, un répartiteur de charge de requêtes LLM capable de gérer aussi des niveaux de priorités.
+<figure markdown>
+![Aristote-Dispatcher](assets/aristote-dispatcher.png){ width="750" }
+<figcaption>Répartiteur de charge Aristote-Dispatcher</figcaption>
+ </figure>
+
+Aristote-Dispatcher exposant une API compatible avec celle d'OpenAI, il peut être utilisé en remplacement de GPT4 dans les **workers** Aristote, mais aussi dans d'autres applications. Par ailleurs, comme il peut gérer des priorités, il peut combiner des usages asynchrones comme le traitement de vidéos d'Aristote pour générer des quiz, avec un traitement synchrone pour des applications interactives comme des chat.
  
 ## Implémentations dans des outils tiers
+<figure markdown>
+![Aristote-Dispatcher](assets/aristote-in-pod.png){ width="750" }
+<figcaption>Intégration d'Aristote dans Esup_POD 3.7</figcaption>
+ </figure>
 
-Aristote est désormais intégré dans la version 3.7 d'ESUP-Pod et sera intégré dans la plateforme Marsha de France Université Numérique.
+- Aristote est désormais intégré dans la version 3.7 d'ESUP-Pod
+- France Université Numérique a commencé l'implémentation d'Aristote dans Marsha
+- Ubicast, éditeur de la plateforme VoD Nudgis, proposera une version compatible avec Aristote d'ici la fin de l'année
 
-Nous avons par ailleurs des contacts avec les éditeurs Ubicast, Wiloki et Whaller poir intégrer Aristote dans leur offre.
+Profitant de la disponibilité d'une API compatible OpenAI, certains éditeurs proposent d'utiliser Aristote-Dispatcher en remplacement d'accès OpenAI. Cette option est donc désormais disponible dans les outils des éditeurs Nolej.io et Ideta. 
+
+## Disposer d'une infrastructure LLM mutualisée
+
+Pour l’enseignement supérieur, CentraleSupélec s’est associée aux universités de Rennes, Lille, Paris 1 Panthéon-Sorbonne et Reims Champagne-Ardenne pour travailler sur la mutualisation de serveurs d’inférence hébergés dans la fédération de datacentres labellisés, en utilisant un déploiement du projet Aristote-Dispatcher. Ce projet de fédération porte le nom de ILaaS (Inférence LLM as a Service).
+
