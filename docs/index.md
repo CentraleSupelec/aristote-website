@@ -3,10 +3,9 @@
 Lors de la conférence IA & Education des 8 et 9 Juin 2023, un [prototype de l'application Aristote](https://webtv.centralesupelec.fr/videos/aristote/) a été présenté.
 Il répondait aux attentes des étudiants afin de rendre le média vidéo plus facile à utiliser pour leurs révisions.
 
-<figure markdown>
 ![Prototype Aristote](assets/aristote-proto.gif){ width="750" }
-<figcaption>Prototype Aristote (Conférence IA & Education 2023)</figcaption>
-</figure>
+{:.image-caption}
+*Prototype Aristote (Conférence IA & Education 2023)*
 
 Aristote utilise l'IA (intelligence artificielle) afin de transformer des vidéothèques pédagogiques en ressources d'apprentissage enrichies:
 
@@ -31,20 +30,18 @@ Ce projet vise à industrialiser la production de ressources pour en faciliter l
 
 Le premier jalon à court terme est d'embarquer un large panel d'enseignants afin de vérifier que l'IA génère des quizz de bonne qualité pour leur discipline.
 
-<figure markdown>
 ![Portail Aristote](assets/aristote-demo.gif){ width="750" }
-<figcaption>Portail de démonstration Aristote</figcaption>
-</figure>
+{:.image-caption}
+Portail de démonstration Aristote
 Nous avons donc implémenté un portail de démonstration qui permettra (dès que l'infrastructure IA sera opérationnelle):
 
   - de téléverser une vidéo
   - de demander à l'infrastructure d'IA Aristote de générer les données d'enrichissement (retranscription audio, classification par discipline, mots clés, propositions de QCM)
   - d'évaluer la qualité des données produites et de les corriger
  
-<figure markdown>
 ![API Aristote](assets/aristote-api.gif){ width="750" }
-<figcaption>API Aristote pour les applications pédagogiques</figcaption>
-</figure>
+{:.image-caption}
+*API Aristote pour les applications pédagogiques*
 
 Ce portail de démonstration s'appuie sur une architecture Webservices (API REST) que nous avons pensé la plus ouverte possible pour faciliter l'intégration d'Aristote par les éditeurs de la EdTech:
 
@@ -52,10 +49,9 @@ Ce portail de démonstration s'appuie sur une architecture Webservices (API REST
   - elle est en cours d'intégration dans POD
   - d'autres éditeurs se sont montrés intéressés pour intégrer Aristote
 
-<figure markdown>
 ![Infrastructure Aristote](assets/aristote-infra.gif){ width="750" }
-<figcaption>Principe d'architecture de l'infrastructure Aristote</figcaption>
- </figure>
+{:.image-caption}
+*Principe d'architecture de l'infrastructure Aristote*
 
 Nous avons travaillé sur l'optimisation de la qualité des données générées par l'IA, voici ce qui ressort de nos premières études:
 

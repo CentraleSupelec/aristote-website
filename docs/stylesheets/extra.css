@@ -29,3 +29,9 @@
   width: 100%;
   border: 0;
 }
+
+.image-caption {
+  text-align: center;
+  font-size: .8rem;
+  color: lightgrey;
+}
