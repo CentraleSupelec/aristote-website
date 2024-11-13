@@ -8,7 +8,7 @@ Il répondait aux attentes des étudiants afin de rendre le média vidéo plus f
 <figcaption>Prototype Aristote (Conférence IA & Education 2023)</figcaption>
 </figure>
 
-Aristote utilise l'IA (intelligence artificielle) afin de transformer des vidéothèques pédagogiques en ressources d'apprentissage enrichies:
+Aristote est un [logiciel libre](opensource.md) qui utilise l'IA (intelligence artificielle) afin de transformer des vidéothèques pédagogiques en ressources d'apprentissage enrichies:
 
 - en produisant une retranscription de l'audio sous forme de texte qui peut être synchronisé avec la vidéo et dans lequel les recherches sont facilitées
 - en traduisant optionnellement ces retranscriptions pour générer par exemple des fichiers de sous-titre dans une autre langue
