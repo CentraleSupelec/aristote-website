@@ -68,7 +68,7 @@ Afin de générer des informations de bonnes qualité, la pertinence du LLM est 
 
 Nous avons donc développé le projet Aristote-Dispacther, un répartiteur de charge de requêtes LLM capable de gérer aussi des niveaux de priorités.
 <figure markdown>
-![Aristote-Dispatcher](assets/aristote-dispatcher.png){ width="750" }
+![Aristote-Dispatcher](assets/aristote-dispatcher.png){ width="550" }
 <figcaption>Répartiteur de charge Aristote-Dispatcher</figcaption>
  </figure>
 
