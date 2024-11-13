@@ -21,7 +21,7 @@ Outre les fichiers vidéos, d'autres ressources peuvent être traitées par Aris
 - des fichiers audio
 - des fichiers de sous-titre (SRT ou VTT)
 
-## Améliorer l'adoption et la diffusion de la technologie
+## Diffuser Aristote au plus grand nombre d'étudiants
 
 Afin de toucher le plus d'étudiants possible, il est important de convaincre les enseignants qui sont garants des contenus pédagogiques mis à disposition. A ce titre plusieurs critères doivent être réunis:
 
@@ -52,8 +52,6 @@ Afin de permettre aux enseignants de tester la solution avant la mise à disposi
 ![Portail Aristote](assets/aristote-demo.gif){ width="750" }
 <figcaption>Portail de démonstration Aristote</figcaption>
 </figure>
-
-
 
 ### Un traitement à distance des vidéos
 Afin de répartir les ressources informatiques requises pour le traitement des vidéos, une architecture à base de **workers** a été mise en place. Chaque **worker** possède un rôle précis (retransription de l'audio, génération de quiz et de métadonnées, traduction), et s'authentifie auprès d'Aristote pour récupérer ses tâches.
