@@ -24,7 +24,7 @@ En cours de publication, à suivre sur:
 
 [https://github.com/CentraleSupelec/aristote-dispatcher](https://github.com/CentraleSupelec/aristote-dispatcher)
 
-- **Passerelle Aristote/Meet** : Ce dépôt permet de coupler l'outil Meet à Aristote
+- **Passerelle Aristote/AgentVisio** : Ce dépôt est le résultat du Hackathon organisé le 12/09/2024 par la DINUM pour ajouter la fonctionnalité de transcription et de prises de notes à l’outil de visio https://visio.numerique.gouv.fr
 
 [https://github.com/CentraleSupelec/aristote-meet-transcript](https://github.com/CentraleSupelec/aristote-meet-transcript)
 

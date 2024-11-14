@@ -1,7 +1,7 @@
 # Bienvenue sur le site du projet Aristote.
 
-Lors de la conférence IA & Education des 8 et 9 Juin 2023, un [prototype de l'application Aristote](https://webtv.centralesupelec.fr/videos/aristote/) a été présenté.
-Il répondait aux attentes des étudiants afin de rendre le média vidéo plus facile à utiliser pour leurs révisions.
+Lors de la conférence IA & Education des 8 et 9 juin 2023, un [prototype de l'application Aristote](https://webtv.centralesupelec.fr/videos/aristote/) a été présenté.
+Il répondait aux attentes des étudiants en rendant les vidéo plus facile à utiliser pour leurs révisions.
 
 <figure markdown>
 ![Prototype Aristote](assets/aristote-proto.gif){ width="750" }
@@ -14,9 +14,9 @@ Aristote est un [logiciel libre](opensource.md) qui utilise l'IA (intelligence a
 - en traduisant optionnellement ces retranscriptions pour générer par exemple des fichiers de sous-titre dans une autre langue
 - en classifiant les vidéos selon des thématiques
 - en proposant un titre, une description, des mots clés
-- en générant des quiz sous forme de question/réponses intégrables aux vidéos ou exploitables dans une plateforme d'apprentissage en ligne (comme Moodle)
+- en générant des quiz sous forme de questions/réponses intégrables aux vidéos ou exploitables dans une plateforme d'apprentissage en ligne (comme Moodle)
 
-Outre les fichiers vidéos, d'autres ressources peuvent être traitées par Aristote:
+Outre les fichiers vidéo, d'autres ressources peuvent être traitées par Aristote:
 
 - des fichiers audio
 - des fichiers de sous-titre (SRT ou VTT)
@@ -26,8 +26,8 @@ Outre les fichiers vidéos, d'autres ressources peuvent être traitées par Aris
 Afin de toucher le plus d'étudiants possible, il est important de convaincre les enseignants qui sont garants des contenus pédagogiques mis à disposition. A ce titre plusieurs critères doivent être réunis:
 
 - l'enseignant doit rester maître des contenus proposés et doit donc pouvoir valider ou modifier les propositions faites par l'IA
-- l'usage de LLM non souverain pose problème quant aux conditions d'utilisations des données générées et à la fuite d'informations importantes pour l'amélioration future du service
-- l'enseignant doit pouvoir accéder à ce service directement via ses outils de production de contenus actuels
+- l'usage de LLM non souverain pose problème quant aux conditions d'utilisation des données générées et à la fuite d'informations importantes pour l'amélioration future du service
+- l'enseignant doit pouvoir accéder à ce service directement via ses outils de production de contenu actuels
 
 Par conséquent, le projet:
 
@@ -64,7 +64,7 @@ Cette architecture permet de mobiliser des ressources de calcul dans plusieurs �
 
 ### Un accès au LLM mutualisé avec gestion de priorités
 
-Afin de générer des informations de bonnes qualité, la pertinence du LLM est essentielle. Nos tests ont montré qu'actuellement le plus petit modèle utilisable dans notre contexte est un modèle Llama3 à 70 milliards de paramètres. Ceci suppose donc une infrastructure de claclu GPU importante, qu'il faut mutualiser pour la rentabiliser financièrement et la rendre écologiquement responsable (la multiplication de serveurs GPU dans les établissements auraient une empreinte environnementale néfaste).
+Afin de générer des informations de bonnes qualité, la pertinence du LLM est essentielle. Nos tests ont montré qu'actuellement le plus petit modèle utilisable dans notre contexte est un modèle Llama3 à 70 milliards de paramètres. Ceci suppose donc une infrastructure de calcul GPU importante, qu'il faut mutualiser pour la rentabiliser financièrement et la rendre écologiquement responsable (la multiplication de serveurs GPU dans les établissements auraient une empreinte environnementale néfaste).
 
 Nous avons donc développé le projet Aristote-Dispacther, un répartiteur de charge de requêtes LLM capable de gérer aussi des niveaux de priorités.
 <figure markdown>
@@ -82,7 +82,7 @@ Aristote-Dispatcher exposant une API compatible avec celle d'OpenAI, il peut êt
 
 - Aristote est désormais intégré dans la version 3.7 d'ESUP-Pod
 - France Université Numérique a commencé l'implémentation d'Aristote dans Marsha
-- Ubicast, éditeur de la plateforme VoD Nudgis, proposera une version compatible avec Aristote d'ici la fin de l'année
+- Ubicast, éditeur de la plateforme de VoD Nudgis, proposera une version compatible avec Aristote d'ici la fin de l'année
 
 Profitant de la disponibilité d'une API compatible OpenAI, certains éditeurs proposent d'utiliser Aristote-Dispatcher en remplacement d'accès OpenAI. Cette option est donc désormais disponible dans les outils des éditeurs Nolej.io et Ideta. 
 
