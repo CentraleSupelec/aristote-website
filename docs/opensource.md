@@ -28,6 +28,6 @@ En cours de publication, à suivre sur:
 
 [https://github.com/CentraleSupelec/aristote-meet-transcript](https://github.com/CentraleSupelec/aristote-meet-transcript)
 
-- **Passerelle Aristote/Ubicast-Nudgis** : Ce dépôt permet de traiter en lots via Aristote, les vidéos  disponibles sur un serveur VoD Nudgis d'Ubicast
+- **Passerelle Aristote/Ubicast-Nudgis** : Ce dépôt permet de traiter en lots, via Aristote, les vidéos  disponibles sur un serveur VoD Nudgis d'Ubicast
 
 [https://github.com/CentraleSupelec/aristote-nudgis-enrich](https://github.com/CentraleSupelec/aristote-nudgis-enrich)
