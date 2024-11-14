@@ -24,10 +24,10 @@ En cours de publication, à suivre sur:
 
 [https://github.com/CentraleSupelec/aristote-dispatcher](https://github.com/CentraleSupelec/aristote-dispatcher)
 
-- **Passerelle Aristote/AgentVisio** : Ce dépôt est le résultat du Hackathon organisé le 12/09/2024 par la DINUM pour ajouter la fonctionnalité de transcription et de prises de notes à l’outil de visio https://visio.numerique.gouv.fr
+- **Passerelle Aristote/Visio** : Ce dépôt est le résultat du Hackathon organisé le 12/09/2024 par la DINUM pour ajouter la fonctionnalité de transcription et de prises de notes à l’outil Visio [https://visio.numerique.gouv.fr](https://visio.numerique.gouv.fr)
 
 [https://github.com/CentraleSupelec/aristote-meet-transcript](https://github.com/CentraleSupelec/aristote-meet-transcript)
 
-- **Passerelle Aristote/Ubicast-Nudgis** : Ce dépôt permet de traiter en lots via Aristote, les vidéos  disponibles sur une serveur VoD Nudgis d'Ubicast
+- **Passerelle Aristote/Ubicast-Nudgis** : Ce dépôt permet de traiter en lots via Aristote, les vidéos  disponibles sur un serveur VoD Nudgis d'Ubicast
 
 [https://github.com/CentraleSupelec/aristote-nudgis-enrich](https://github.com/CentraleSupelec/aristote-nudgis-enrich)

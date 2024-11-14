@@ -66,7 +66,7 @@ Cette architecture permet de mobiliser des ressources de calcul dans plusieurs �
 
 Afin de générer des informations de bonnes qualité, la pertinence du LLM est essentielle. Nos tests ont montré qu'actuellement le plus petit modèle utilisable dans notre contexte est un modèle Llama3 à 70 milliards de paramètres. Ceci suppose donc une infrastructure de calcul GPU importante, qu'il faut mutualiser pour la rentabiliser financièrement et la rendre écologiquement responsable (la multiplication de serveurs GPU dans les établissements auraient une empreinte environnementale néfaste).
 
-Nous avons donc développé le projet Aristote-Dispacther, un répartiteur de charge de requêtes LLM capable de gérer aussi des niveaux de priorités.
+Nous avons donc développé le projet Aristote-Dispatcher, un répartiteur de charge de requêtes LLM capable de gérer aussi des niveaux de priorités.
 <figure markdown>
 ![Aristote-Dispatcher](assets/aristote-dispatcher.png){ width="550" }
 <figcaption>Répartiteur de charge Aristote-Dispatcher</figcaption>
